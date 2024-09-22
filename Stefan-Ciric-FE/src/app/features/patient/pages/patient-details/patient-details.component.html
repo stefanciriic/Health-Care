@@ -1,0 +1,153 @@
+<!-- <table class="table table-striped mx-auto details" *ngIf="patient">
+  <tbody>
+    <tr>
+      <th scope="row">Identifier</th>
+      <td>{{patient.identifier}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Name</th>
+      <td>{{patient.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Surame</th>
+      <td>{{patient.surname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Gender</th>
+      <td>{{getGenderValue(patient.gender)}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Birthdate</th>
+      <td>{{patient.birthDate}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Address</th>
+      <td>{{patient.address}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td>{{patient.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>{{patient.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Deceased</th>
+      <td>{{patient.deceased}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Marital status</th>
+      <td>{{getMaritalStatusValue(patient.maritalStatus)}}</td>
+    </tr>
+    <tr>
+      <th scope="row">General Practitioner</th>
+      <td>{{generalPractitioner?.name +" "+generalPractitioner?.surname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Organization</th>
+      <td>{{organization?.name}}</td>
+    </tr>
+  </tbody>
+<button type="button" class="btn btn-outline-primary" routerLink="/patient">Back</button>
+</table>
+ -->
+
+<div class="main">
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 mx-auto " *ngIf="patient">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<h6 class="mb-3 text-primary">About patient</h6>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="fullName">Name</label>
+							<input type="text" disabled class="form-control" id="fullName" value="{{patient.name}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="eMail">Surname</label>
+							<input type="text" disabled class="form-control" id="eMail" value="{{patient.surname}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Identifier</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{patient.identifier}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Gender</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{getGenderValue(patient.gender)}}">
+						</div>
+					</div>
+
+				</div>
+				<div class="row gutters mt-2">
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="Street">Birthdate</label>
+							<input type="name" class="form-control" disabled  id="Street" value="{{patient.birthDate}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="ciTy">Address</label>
+							<input type="name" class="form-control" disabled id="ciTy" value="{{patient.address}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Phone</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{patient.phone}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Email</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{patient.email}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Organizaiton</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{organization?.name}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">General practitioner</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{generalPractitioner?.name}} {{generalPractitioner?.surname}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Marital status</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{getMaritalStatusValue(patient.maritalStatus)}}">
+						</div>
+					</div>
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Deceased</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{patient.deceased}}">
+						</div>
+					</div>
+
+
+        <div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-2 col-12">
+						<div class="text-right">
+              <button type="button" class="btn btn-outline-primary" routerLink="/patient">Back</button>
+            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

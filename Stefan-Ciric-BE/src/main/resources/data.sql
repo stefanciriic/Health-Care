@@ -1,0 +1,107 @@
+--INSERT INTO organization_type (id, name) 
+--VALUES 
+--(1,'Hospital'),
+--(2,'Insurance Company'),
+--(3,'Educational Institute'),
+--(4,'Clinical Research'),
+--(5,'Other');
+--
+--INSERT INTO service_type (id, name) 
+--VALUES 
+--(1,'Aged Care Assessment'),
+--(2,'Aged Residential Care'),
+--(3,'Home Care/Housekeeping Assistance'),
+--(4,'Acupuncture'),
+--(5,'Bowen Therapy'),
+--(6,'Blood Donation'),
+--(7,'Family Planning'),
+--(8,'Immunization'),
+--(9,'Optometry'),
+--(10,'Osteopathy'),
+--(11,'Physiotherapy'),
+--(12,'Podiatry'),
+--(13,'Endodontic'),
+--(14,'Dental'),
+--(15,'Oral Surgery'),
+--(16,'Emergency Medical'),
+--(17,'Psychology'),
+--(18,'Dermatology');
+--
+--INSERT INTO ORGANIZATION (active, address, email, identifier, name, phone, type)
+--VALUES
+--(1, 'Grafton Rd Townshend 461', 'preneel@me.com', 'ORG01', 'Medtech', '+381112650950', 1),
+--(1, 'Charlotte St Laurinburg 904', 'tmccarth@comcast.net', 'ORG02', 'Express Laboratory', '+381113644888',2),
+--(1, 'Clifftops Ave Monteagle, Tennessee', 'amimojo@comcast.net', 'ORG03', 'Institute of Public Health of Serbia', '+381112684566',4),
+--(1, 'School St Seekonk, Massachusetts', 'info@zdravlje.org.rs', 'ORG04', 'Green Earth Medica', '+381113237351',3),
+--(1, 'Old Mill Rd Shelbyville, Kentucky', 'sravani@hotmail.com', 'ORG05', 'CCC Medical Co', '+381113088304',4),
+--(1, 'Stowbridge Rd Dublin, Ohio', 'brbarret@msn.com', 'ORG06', 'VMA', '0112661122',1);
+--(1, '64 King Street SWINDON ', 'fatelk@sbcglobal.net', 'ORG07', 'Rent-a-Medic', '+38162268641', 1),
+--(1, 'Bonanza Way, Las Vegas', 'geeber@icloud.com', 'ORG08', 'Aqualab', '+381112441551',1),
+--(1, 'Sunset Road, Gales Ferry', 'shaffei@outlook.com', 'ORG09', 'Medigroup', '+381114040100',1),
+--(1, '12 2nd Avenue, Culver', 'evilopie@comcast.net', 'ORG10', 'Grace Medical', '+381113345960',2),
+--
+--
+--INSERT INTO PRACTITIONER(ACTIVE, address, birth_date, email, gender, identifier, NAME, phone, qualification, surname, ORGANIZATION)
+--VALUES
+--(1, '221B Baker St., London', '1997-05-24', 'sherlock.holmes@gmail.com', 'MALE', 'PRACT01', 'Sherlock','+3845623826', 'DOCTOR_OF_MEDICINE', 'Holmes', 1),
+--(1, '350 Fifth Avenue, New York', '2000-06-09', 'barack.obama@gmail.com', 'MALE', 'PRACT02', 'Barack', '+3845653826', 'DOCTOR_OF_MEDICINE', 'Obama', 1),
+--(1, '52 Festive Road, Putney, London', '1997-08-15', 'john.doe@gmail.com', 'MALE', 'PRACT03', 'John', '+38653521226', 'DOCTOR_OF_MEDICINE','Doe', 2),
+--(1, '3 Bourbon Street, Manila', '2000-06-09', 'rgiersig@me.com', 'FEMALE', 'PRACT04', 'Anja', '+3865453826', 'DOCTOR_OF_MEDICINE', 'Dmitrovic', 2),
+--(1, 'SE Yukon Street, Portland', '1997-08-15', 'metzzo@yahoo.com', 'FEMALE', 'PRACT05', 'Olgica', '+3811245866', 'DOCTOR_OF_MEDICINE','Simic', 3),
+--(1, '4 Privet Drive, Little Whinging, Surrey', '2000-06-09', 'harry.potter@gmail.com', 'MALE', 'PRACT06', 'Harry', '+3635452123', 'DOCTOR_OF_MEDICINE', 'Potter', 3),
+--(1, '23 Railway Cuttings, East Cheam', '1997-08-15', 'tony.hancock@gmail.com', 'FEMALE', 'PRACT07', 'Tony', '+3865235663', 'MEDICAL_ASSISTANT','Hancock', 4),
+--(1, '52 Festive Road, Putney, London', '1997-08-15', 'pavel@icloud.com', 'FEMALE', 'PRACT08', 'Nemanja', '+3853423826', 'MEDICAL_ASSISTANT','Neskovic', 4),
+--(1, 'Whitehaven Mansions, Sandhurst Square', '2000-06-09', 'hercule.poirot@gmail.com', 'MALE', 'PRACT09', 'Hercule', '+3864242826', 'MEDICAL_ASSISTANT', 'Poirot', 5),
+--(1, '6 W Lone Mountain Road, Las Vegas', '1997-08-15', 'johnny.depp@gmail.com', 'MALE', 'PRACT10', 'Johnny', '+381635423', 'MEDICAL_ASSISTANT','Depp', 5),
+--(1, '30 Bateman Farm Road', '2000-06-09', 'elodie.patrizi@gmail.com', 'FEMALE', 'PRACT11', 'Elodie', '+3816534521', 'MEDICAL_ASSISTANT', 'Patrizi', 6),
+--(1, '203rd Street, Peculiar', '1997-08-15', 'donatella.versace@gmail.com', 'FEMALE', 'PRACT12', 'Donatela', '+38115423651', 'MEDICAL_ASSISTANT','Versace', 6),
+--(1, '221B Baker St., London', '1997-05-24', 'sophia.loren@gmail.com', 'FEMALE', 'PRACT13', 'Sophia','+381112423826', 'NURSE_PRACTITIONERE', 'Loren', 7),
+--(1, '350 Fifth Avenue, New York', '2000-06-09', 'anna.vintour@gmail.com', 'FEMALE', 'PRACT14', 'Anna', '+381112423826', 'NURSE_PRACTITIONER', 'Vintour', 7),
+--(1, '52 Festive Road, London', '1997-08-15', 'jim.jarmousch@gmail.com', 'MALE', 'PRACT15', 'Jimm', '+381112423826', 'NURSE_PRACTITIONER','Jarmousch', 8)
+--
+--INSERT INTO PATIENT(ACTIVE, address, birth_date, deceased, email, gender, identifier, NAME, phone, marital_status, surname, general_practitioner, ORGANIZATION)
+--VALUES
+--(1, '29 Terrace Drive, Mckeesport', '2000-03-21',0 , 'violinhi@hotmail.com', 'MALE', 'PAT01', 'Max', '0600438693', 'MARRIED', 'Rimielt', 1, 1),
+--(1, '27 Noela Avenue, Pelham', '2000-03-21',0 , 'demiano.david@gmail.com', 'MALE', 'PAT02', 'Demiano', '0600438693', 'MARRIED', 'David', 3, 2),
+--(1, 'Titurel Strasse 18, Munich', '2000-03-21',0 , 'angie.moore@gmail.com', 'FEMALE', 'PAT03', 'Angie', '0600438693', 'MARRIED', 'Moore', 5, 3),
+--(1, 'Mariahilfer Strasse 22, Vienna', '2000-03-21',0 , 'mario.balotteli@gmail.com', 'MALE', 'PAT04', 'Mario', '0600438693', 'MARRIED', 'Balotteli', 3, 4),
+--(1, '4 Raccoon Ridge Lane, Rixeyville', '2000-03-21',0 , 'max.rimielt@gmail.com', 'MALE', 'PAT05', 'Max', '0600438693', 'MARRIED', 'Rimielt', 2, 5),
+--(1, '31 Smith Lane, Ocean View', '2000-03-21',0 , 'amimojo@live.com', 'OTHER', 'PAT06', 'Demiano', '0600438693', 'MARRIED', 'David', 1, 6),
+--(1, 'Titurel Strasse 18, Munich', '2000-03-21',0 , 'bahwi@att.net', 'FEMALE', 'PAT07', 'Angie', '0600438693', 'MARRIED', 'Moore', 3, 7),
+--(1, 'Mariahilfer Strasse 22, Vienna', '2000-03-21',0 , 'mario.balotteli@gmail.com', 'MALE', 'PAT08', 'Mario', '0600438693', 'MARRIED', 'Balotteli', 4, 8),
+--(1, '18 Elk Road, Marysville', '2000-03-21',0 , 'matthijs@comcast.net', 'MALE', 'PAT09', 'Max', '0600438693', 'MARRIED', 'Rimielt', 2, 3),
+--(1, '24 Grandview Lane, New Milford', '2000-03-21',0 , 'hmbrand@me.com', 'MALE', 'PAT10', 'Demiano', '0600438693', 'MARRIED', 'David', 3, 1),
+--(1, 'Titurel Strasse 18, Munich', '2000-03-21',0 , 'wagnerch@verizon.net', 'FEMALE', 'PAT11', 'Angie', '0600438693', 'MARRIED', 'Moore', 5, 6),
+--(1, 'Mariahilfer Strasse 22, Vienna', '2000-03-21',0 , 'mario.balotteli@gmail.com', 'OTHER', 'PAT12', 'Mario', '0600438693', 'MARRIED', 'Balotteli', 11, 7),
+--(1, '25 48th Street SE', '2000-03-21',0 , 'max.rimielt@gmail.com', 'MALE', 'PAT13', 'Max', '0600438693', 'MARRIED', 'Rimielt', 3, 13),
+--(1, '11 Lewis Street, Manchester', '2000-03-21',0 , 'demiano.david@gmail.com', 'MALE', 'PAT14', 'Demiano', '0600438693', 'MARRIED', 'David', 1, 8),
+--(1, 'Titurel Strasse 18, Munich', '2000-03-21',0 , 'rattenbt@live.com', 'FEMALE', 'PAT15', 'Angie', '0600438693', 'MARRIED', 'Moore', 4, 9)
+
+--INSERT INTO examination (diagnosis, end_date, identifier, priority, start_date, status, organization, patient, service_type) 
+--VALUES 
+--('Diagnosis:1','2022-05-22', 'EXAM01', 'EMERGENCY', '2022-05-23', 'SUSPENDED', 1,1,1),
+--('Diagnosis:2','2022-05-29', 'EXAM02', 'RUSH', '2022-05-29', 'ENTERED_IN_ERROR', 3,3,3),
+--('Diagnosis:3','2022-05-26', 'EXAM03', 'TIMING_CRITICAL', '2022-05-26', 'FINISHED', 5,5,2),
+--('Diagnosis:4','2022-05-22', 'EXAM04', 'ASAP', '2022-05-23', 'TRIAGED', 5,5,1),
+--('Diagnosis:5','2022-05-29', 'EXAM05', 'CALLBACK_RESULTS', '2022-05-29', 'PLANNED', 1,7,3),
+--('Diagnosis:6','2022-05-26', 'EXAM06', 'ASAP', '2022-05-26', 'IN_PROGRESS', 6,5,2),
+--('Diagnosis:7','2022-05-22', 'EXAM07', 'ASAP', '2022-05-23', 'TRIAGED', 8,8,1),
+--('Diagnosis:8','2022-05-29', 'EXAM08', 'CALLBACK_RESULTS', '2022-05-29', 'PLANNED', 11,10,3),
+--('Diagnosis:9','2022-05-26', 'EXAM09', 'ASAP', '2022-05-26', 'IN_PROGRESS', 2,12,2);
+--('Diagnosis:9','2022-05-26', 'EXAM10', 'ASAP', '2022-05-26', 'IN_PROGRESS', 2,12,2);
+
+--INSERT INTO examination_practitioner (examination_id, practitioner_id) 
+--VALUES(1,1),
+--(1,3),
+--(1,5),
+--(2,1),
+--(2,1),
+--(2,12),
+--(3,12),
+--(3,11),
+--(4,16),
+--(5,17),
+--(6,7);
+--
+--INSERT INTO user(username,password)
+--VALUES(admin,admin)

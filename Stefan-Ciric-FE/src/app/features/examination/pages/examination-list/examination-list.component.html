@@ -1,0 +1,60 @@
+<div class="container mt-2 mb-2">
+  <div class="row justify-content-center">
+    <div class="col-4 w-25 p-1">
+        <label for="type">Filter by status</label>
+        <select type="text" id="type" class="form-select" (change)="filterByStatus($event.target.value)">
+          <option>Show all</option>
+          <option  *ngFor="let t of statuses" [value]="t">{{t}}</option>
+        </select>
+      </div>
+      <div class="col-4 w-25 p-1">
+          <label for="type">Filter by priority</label>
+            <select type="text" id="type" class="form-select" (change)="filterByPriority($event.target.value)">
+             <option>Show all</option>
+             <option  *ngFor="let t of priorities" [value]="t">{{t}}</option>
+          </select>
+        </div>
+      <div class="col-4 w-25 mt-4">
+        <button routerLink="/examination/examination-form" class="btn btn-outline-secondary ml-2">Add examination</button>
+      </div>
+  </div>
+</div>
+
+<table class="table table-striped mx-auto w-75">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th sortable="identifier" (sort)="onSort($event)" scope="col">Identifier</th>
+      <th sortable="practitionerEntity.name" (sort)="onSort($event)" scope="col">Patient</th>
+      <th sortable="organizationEntity.name" (sort)="onSort($event)" scope="col">Organization</th>
+      <th scope="col">Status</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Service Type</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of examinations; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{e.identifier}}</td>
+      <td>{{getPatient(e.patientId)}}</td>
+      <td>{{orgName(e.organizationId)}}</td>
+      <td>{{getStatusValue(e.status)}}</td>
+      <td>{{getPriorityValue(e.priority)}}</td>
+      <td>{{e.serviceType}}</td>
+      <td class="text-center">
+        <button class="btn btn-outline-success m-1" [routerLink]="['/examination/examination-form',e.id]" [queryParams]="{'page': currentPage, 'size':pageSize}" >Edit</button>
+        <button class="btn btn-outline-success m-1" [routerLink]="['/examination/examination-details',e.id]" [queryParams]="{'page': currentPage, 'size':pageSize}">Details</button>
+        <button class="btn btn-outline-danger m-1" (click)="deleteExamination(e)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center align-items-start">
+  <select class="form-select form-select-sm small mx-2" (change)="onPageSizeChange()" [(ngModel)]="pageSize">
+    <option *ngFor="let size of availablePageSize" [ngValue]="size">{{size}}</option>
+  </select>
+  <ngb-pagination class="align-self-center" [collectionSize]="totalItems" [(page)]="currentPage"
+    (pageChange)="onPageChange($event)" [pageSize]="pageSize" [boundaryLinks]="true"></ngb-pagination>
+</div>

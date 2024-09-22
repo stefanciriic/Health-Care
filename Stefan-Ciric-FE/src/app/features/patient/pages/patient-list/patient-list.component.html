@@ -1,0 +1,67 @@
+  <div class="container mt-2 mb-2">
+    <div class="row justify-content-center">
+      <div class="col-4 w-25 p-1">
+          <label for="type">Filter by Gender</label>
+          <select type="text" id="type" class="form-select" (change)="filterByGender($event.target.value)">
+            <option>Show all</option>
+            <option  *ngFor="let t of genders" [value]="t">{{t}}</option>
+          </select>
+        </div>
+        <div class="col-4 w-25 p-1">
+            <label for="type">Filter by marital status</label>
+              <select type="text" id="type" class="form-select" (change)="filterByMaritalStatus($event.target.value)">
+               <option>Show all</option>
+               <option  *ngFor="let t of maritalStatuses" [value]="t">{{t}}</option>
+            </select>
+          </div>
+        <div class="col-4 w-25 mt-4">
+          <input type="text" name="search" #search id="search">
+          <button class="btn btn-outline-secondary m-1" (click)="filterByWord(search.value)">Search</button>
+        </div>
+        <div class="col-4 w-25 mt-4">
+          <button routerLink="/patient/patient-form" class="btn btn-outline-secondary ml-2">Add Patient</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="w-50 mx-auto d-flex justify-content-center alert alert-danger" *ngIf="errorMessage">
+       <strong class="mx-2 ">Error!</strong>{{errorMessage}}
+    </div>
+  </div>
+  <table  class="table table-striped mx-auto w-50">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th sortable="identifier" (sort)="onSort($event)" scope="col">Identifier</th>
+      <th sortable="name" (sort)="onSort($event)" scope="col">Name</th>
+      <th sortable="surname" (sort)="onSort($event)" scope="col">Surname</th>
+      <th scope="col" class="text-center">Actions</th>
+      <th scope="col" class="text-center">Gender</th>
+
+      <th scope="col" class="text-center">Marital status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of patients; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{p.identifier}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.surname}}</td>
+      <td>{{getGenderValue(p.gender)}}</td>
+      <td>{{getEnumValue(p.maritalStatus)}}</td>
+      <td class="text-center">
+        <button class="btn btn-outline-success m-1" [routerLink]="['/patient/patient-form',p.id]"  [queryParams]="{'page': currentPage, 'size':pageSize}" >Edit</button>
+        <button class="btn btn-outline-success m-1" [routerLink]="['/patient/patient-details',p.id]"  [queryParams]="{'page': currentPage, 'size':pageSize}" >Details</button>
+        <button class="btn btn-outline-danger m-1" (click)="deletePatient(p)" >Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center align-items-start">
+    <select class="form-select form-select-sm small mx-2" (change)="onPageSizeChange()" [(ngModel)]="pageSize" >
+      <option *ngFor="let size of availablePageSize" [ngValue]="size">{{size}}</option>
+    </select>
+    <ngb-pagination class="align-self-center" [collectionSize]="totalItems" [(page)]="currentPage" (pageChange)="onPageChange($event)" [pageSize]="pageSize" [boundaryLinks]="true" ></ngb-pagination>
+  </div>
+

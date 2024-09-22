@@ -1,0 +1,97 @@
+
+<div class="d-flex flex-column col-lg-6 col-md-8 m-3 p-3 mx-auto w-25" >
+  <h2 *ngIf="!edit">Add new Patient</h2>
+  <h2 *ngIf="edit">Edit Patient</h2>
+  <form *ngIf="patientForm" [formGroup]="patientForm" >
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      <strong class="mx-2">Error!</strong>{{errorMessage}}
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="identifier">Identifier</label>
+      <input type="text" id="identifier" class="form-control" formControlName="identifier"  />
+      <p class="alert alert-danger" *ngIf="hasErrors('identifier', 'minlength')" >
+        Identifier must have 5 characters!
+      </p>
+    </div>
+    <div class="d-flex flex-column">
+      <label for="name">Name</label>
+      <input type="text" id="name"  class="form-control" formControlName="name"/>
+      </div>
+
+    <div class="d-flex flex-column">
+      <label for="surname">Surname</label>
+      <input type="text" id="surname"  class="form-control" formControlName="surname"  />
+    </div>
+
+
+    <div class="d-flex flex-column">
+      <label for="gender">Gender</label>
+      <select type="text" id="gender" class="form-select"  formControlName="gender" >
+        <option  *ngFor="let g of genders | keyvalue"  [ngValue]="g.key">{{g.value}}</option>
+      </select>
+    </div>
+    <div class="d-flex flex-column">
+      <label for="maritalStatus">Marital status</label>
+      <select type="text" id="maritalStatus" class="form-select"  formControlName="maritalStatus" >
+        <option  *ngFor="let m of maritalStatuses | keyvalue"  [ngValue]="m.key">{{m.value}}</option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="birthDate">Birthdate</label>
+      <input type="date" id="birthDate" class="form-control" formControlName="birthDate"  />
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="address">Address</label>
+      <input type="text" id="address" class="form-control" formControlName="address"/>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" class="form-control" formControlName="phone"/>
+      <p class="alert alert-danger" *ngIf="hasErrors('phone', 'pattern')" >
+        Phone number is not in valid format!
+      </p>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" formControlName="email"/>
+      <p class="alert alert-danger" *ngIf="hasErrors('email', 'pattern')" >
+        Email is not in valid format!
+      </p>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="organizationId">Organization</label>
+      <select type="text" id="organizationId" class="form-select" formControlName="organizationId"  >
+        <option  *ngFor="let o of organizations" [ngValue]="o.id">
+            {{o.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="generalPractitionerId">General Practitioner</label>
+      <select type="text" id="generalPractitionerId" class="form-select" formControlName="generalPractitionerId"  >
+        <ng-container *ngFor="let p of practitioners">
+          <option  *ngIf="p.qualification=='DOCTOR_OF_MEDICINE'" [ngValue]="p.id">
+             {{p.name + " "+p.surname}}
+            </option>
+         </ng-container>
+      </select>
+    </div>
+
+
+    <div class="d-flex justify-content-around mt-3">
+      <button type="button" [disabled]="patientForm.invalid" class="btn btn-primary" (click)="onSubmit()" >Save</button>
+      <button type="button" class="btn btn-danger" routerLink="/patient">Cancel</button>
+    </div>
+
+  </form>
+</div>
+
+

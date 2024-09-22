@@ -1,0 +1,10 @@
+package eng.it.stefan.ciric.entity.util;
+
+public enum Qualification {
+	DOCTOR_OF_MEDICINE,
+	MEDICAL_ASSISTANT,
+	NURSE_PRACTITIONER,
+	DOCTOR_OF_PHARMACY,
+	CERTIFIED_NURSE_MIDWIFE,
+	EMERGENCY_MEDICAL_TECHNICIAN
+}

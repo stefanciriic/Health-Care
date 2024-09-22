@@ -1,0 +1,115 @@
+<!-- <table class="table table-striped mx-auto details" *ngIf="examination">
+  <tbody>
+    <tr>
+      <th scope="row">Identifier</th>
+      <td>{{examination.identifier}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Priority</th>
+      <td>{{getPriorityValue(examination.priority)}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Status</th>
+      <td>{{getStatusValue(examination.status)}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Diagnosis</th>
+      <td>{{examination.diagnosis}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Start date</th>
+      <td>{{examination.startDate}}</td>
+    </tr>
+    <tr>
+      <th scope="row">End date</th>
+      <td>{{examination.endDate}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Patient</th>
+      <td>{{patient?.name +" "+patient?.surname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Organization</th>
+      <td>{{organization?.name}}</td>
+    </tr>
+  </tbody>
+  <br>
+  <h4>Practitioners:</h4>
+<div *ngFor="let p of practitioners">
+  <p>{{p.name + " "+p.surname}}</p>
+</div>
+<button type="button" class="btn btn-outline-primary" routerLink="/examination">Back</button>
+</table> -->
+
+<div class="main">
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 mx-auto " *ngIf="examination">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<h6 class="mb-3 text-primary">Examination Details</h6>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="fullName">Identifier</label>
+							<input type="text" disabled class="form-control" id="fullName" value="{{examination.identifier}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="eMail">Priority</label>
+							<input type="text" disabled class="form-control" id="eMail" value="{{getPriorityValue(examination.priority)}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Patient</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{patient?.name}} {{patient?.surname}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Status</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{getStatusValue(examination.status)}}">
+						</div>
+					</div>
+				</div>
+				<div class="row gutters mt-2">
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="Street">Start date</label>
+							<input type="name" class="form-control" disabled  id="Street" value="{{examination.startDate}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="ciTy">End date</label>
+							<input type="name" class="form-control" disabled id="ciTy" value="{{examination.endDate}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Organization</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{organization?.name}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 " style="overflow-y:auto;max-height:100px">
+            <label for="sTate">Practitioners:</label>
+            <div class="form-group" *ngFor="let p of practitioners" >
+                <p>{{p.name + " "+p.surname}}</p>
+			      </div>
+		</div>
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-2 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" routerLink="/examination" class="btn btn-secondary">Back</button>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+
+
+
+

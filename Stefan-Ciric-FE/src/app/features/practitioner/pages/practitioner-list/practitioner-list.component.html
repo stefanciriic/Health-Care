@@ -1,0 +1,62 @@
+
+  <div class="container mb-4">
+    <div class="row justify-content-center ">
+          <div class="col-4 w-25">
+            <label for="type">Filter by Gender</label>
+            <select type="text" id="type" class="form-select" (change)="filterByGender($event.target.value)">
+              <option>Show all genders</option>
+              <option  *ngFor="let t of genders" [value]="t">{{t}}</option>
+            </select>
+          </div>
+          <div class="col-4 w-25">
+            <label for="type">Filter by Qualification</label>
+            <select type="text" id="type" class="form-select" (change)="filterByQualification($event.target.value)">
+              <option>Show all qualifications</option>
+              <option  *ngFor="let t of qualifications" [value]="t">{{t}}</option>
+            </select>
+          </div>
+          <div class="col- mt-4 w-25">
+            <button routerLink="/practitioner/practitioner-form" class="btn btn-outline-secondary ml-2">Add Practitioner</button>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="w-50 mx-auto d-flex justify-content-center alert alert-danger" *ngIf="errorMessage">
+       <strong class="mx-2 ">Error!</strong>{{errorMessage}}
+    </div>
+  </div>
+  <table  class="table table-striped mx-auto w-75">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th sortable="identifier" (sort)="onSort($event)" scope="col">Identifier</th>
+      <th sortable="name" (sort)="onSort($event)" scope="col">Name</th>
+      <th sortable="surname" (sort)="onSort($event)" scope="col">Surname</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Qualification</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of practitioners; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{p.identifier}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.surname}}</td>
+      <td>{{getGenderValue(p.gender)}}</td>
+      <td>{{getEnumValue(p.qualification)}}</td>
+      <td class="text-center">
+        <button class="btn btn-outline-success m-1" [routerLink]="['/practitioner/practitioner-form',p.id]" [queryParams]="{'page': currentPage, 'size':pageSize}"  >Edit</button>
+        <button class="btn btn-outline-success m-1" [routerLink]="['/practitioner/practitioner-details',p.id]"[queryParams]="{'page': currentPage, 'size':pageSize}" >Details</button>
+        <button class="btn btn-outline-danger m-1" (click)="deletePractitioner(p)" >Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center align-items-start">
+    <select class="form-select form-select-sm small mx-2" (change)="onPageSizeChange()" [(ngModel)]="pageSize" >
+      <option *ngFor="let size of availablePageSize" [ngValue]="size">{{size}}</option>
+    </select>
+    <ngb-pagination class="align-self-center" [collectionSize]="totalItems" [(page)]="currentPage" (pageChange)="onPageChange($event)" [pageSize]="pageSize" [boundaryLinks]="true" ></ngb-pagination>
+  </div>
+

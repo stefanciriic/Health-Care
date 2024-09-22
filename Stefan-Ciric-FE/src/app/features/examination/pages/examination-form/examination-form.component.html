@@ -1,0 +1,88 @@
+<div class="d-flex flex-column col-lg-6 col-md-8 m-3 p-3 mx-auto w-25">
+ <h2 *ngIf="!edit">Add new Examination</h2>
+ <h2 *ngIf="edit">Edit Examination</h2>
+
+ <div class="alert alert-danger" *ngIf="errorMessage">
+  <strong class="mx-2">Error!</strong>{{errorMessage}}
+</div>
+  <form *ngIf="examinationForm" [formGroup]="examinationForm" >
+    <div class="d-flex flex-column">
+      <label for="identifier">Identifier</label>
+      <input type="text" id="identifier" class="form-control" formControlName="identifier"/>
+      <p class="alert alert-danger" *ngIf="hasErrors('identifier','minlength')" >
+        Identifier must be minimum 5 characters!
+      </p>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="priority">Priority</label>
+      <select type="text" id="priority" class="form-select"  formControlName="priority" >
+        <option  *ngFor="let g of priorities | keyvalue"  [ngValue]="g.key">{{g.value}}</option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="status">Status</label>
+      <select type="text" id="status" class="form-select"  formControlName="status" >
+        <option  *ngFor="let g of statuses | keyvalue"  [ngValue]="g.key">{{g.value}}</option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="serviceType">Service Type</label>
+      <select type="text" id="serviceType" class="form-select" formControlName="serviceType"  >
+        <option  *ngFor="let t of serviceTypes" [ngValue]="t.name">
+            {{t.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="startDate">Start date</label>
+      <input type="date" id="startDate" class="form-control" formControlName="startDate"  />
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="endDate">End date</label>
+      <input type="date" id="endDate" class="form-control" formControlName="endDate"  />
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="diagnosis">Diagnosis</label>
+      <input type="text" id="diagnosis" class="form-control" formControlName="diagnosis"  />
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="patientId">Select Patient</label>
+      <select type="text" id="patientId" class="form-select" formControlName="patientId"  >
+        <option  *ngFor="let o of patients" [ngValue]="o.id">
+            {{o.name + " "+o.surname}}
+        </option>
+      </select>
+    </div>
+
+    <div class="d-flex flex-column">
+      <label for="organizationId">Select Organization</label>
+      <select type="text" id="organizationId" class="form-select" formControlName="organizationId">
+        <option  *ngFor="let o of organizations" [ngValue]="o.id">
+            {{o.name}}
+        </option>
+      </select>
+    </div>
+    <label for="practitionerIds">Practitioners</label>
+    <div class="from-group" style="overflow-y: auto;max-height: 100px;">
+      <div class="form-group form-check" *ngFor="let practitioner of practitioners">
+        <input type="checkbox" [checked]="chosenPractiitoners.indexOf(practitioner.id)>-1" (change)="onCheckedPractitioner($event)" [value]="practitioner.id" class="form-check-input" >
+        <label for="practitionerIds" class="form-check-label">{{practitioner?.name}} {{practitioner?.surname}}</label>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around mt-3">
+      <button type="button" [disabled]="examinationForm.invalid" class="btn btn-primary" (click)="onSubmit()" >Save</button>
+      <button type="button" class="btn btn-danger" routerLink="/examination">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+

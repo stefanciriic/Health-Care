@@ -1,0 +1,88 @@
+<div class="main">
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 mx-auto " *ngIf="practitioner">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<h6 class="mb-3 text-primary">About practitioner</h6>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="fullName">Name</label>
+							<input type="text" disabled class="form-control" id="fullName" value="{{practitioner.name}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="eMail">Surname</label>
+							<input type="text" disabled class="form-control" id="eMail" value="{{practitioner.surname}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Identifier</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{practitioner.identifier}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Gender</label>
+							<input type="text" disabled class="form-control" id="phone" value="{{getGenderValue(practitioner.gender)}}">
+						</div>
+					</div>
+
+				</div>
+				<div class="row gutters mt-2">
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="Street">Birthdate</label>
+							<input type="name" class="form-control" disabled  id="Street" value="{{practitioner.birthDate}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="ciTy">Address</label>
+							<input type="name" class="form-control" disabled id="ciTy" value="{{practitioner.address}}">
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Phone</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{practitioner.phone}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Email</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{practitioner.email}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Qualification</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{getQualificationValue(practitioner.qualification)}}">
+						</div>
+					</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">Organizaiton</label>
+							<input type="text" disabled class="form-control" id="sTate" value="{{organization?.name}}">
+						</div>
+					</div>
+
+        <div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-2 col-12">
+						<div class="text-right">
+							<button type="button" id="submit" name="submit" routerLink="/practitioner" class="btn btn-secondary">Back</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
